@@ -1,0 +1,4 @@
+.idea
+python_advanced/
+__pycache__
+*.pyc
