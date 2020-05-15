@@ -1,5 +1,6 @@
-import sys
 import yaml
+import json
+import socket
 from argparse import ArgumentParser
 
 def make_request(text):
@@ -10,7 +11,8 @@ def make_request(text):
 if __name__ == '__main__':
     config = {
         'host': 'localhost',
-        'port': 8000
+        'port': 8000,
+        'buffersize': 1024
     }
 
     parser = ArgumentParser()
@@ -30,9 +32,18 @@ if __name__ == '__main__':
 
     host = args.host if args.host else config.get('host')
     port = args.port if args.port else config.get('port')
+    buffersize = config.get('buffersize')
 
-    print(args)
+    sock = socket.socket()
+    sock.connect((host, port))
+
     message = input('Enter your message: ')
     request = make_request(message)
-    print(f'Send message to {host}: {port}')
-    print(request)
+    string_request = json.dumps(request)
+    sock.send(string_request.encode())
+
+    bytes_response = sock.recv(buffersize)
+    response = json.loads(bytes_response)
+    print(response)
+
+    sock.close()
