@@ -1,6 +1,9 @@
+import json
 import yaml
 import socket
 from argparse import ArgumentParser
+
+
 
 if __name__ == '__main__':
     config = {
@@ -33,10 +36,24 @@ if __name__ == '__main__':
     sock.listen(5) # готовность принимать соединение
 
     while True:
-       client, (client_host, client_port) = sock.accept() # принять запрос на установку соединения
-       print(f'Client {client_host}:{client_port} was connected')
+        client, (client_host, client_port) = sock.accept() # принять запрос на установку соединения
+        print(f'Client {client_host}:{client_port} was connected')
 
-       bytes_request = client.recv(buffersize) # принять данные
-       print(f'Request: {bytes_request.decode()}')
-       client.send(bytes_request)
-       client.close()
+        bytes_request = client.recv(buffersize) # принять данные
+
+        request = json.loads(bytes_request)
+
+        if validate_request(request):
+            try:
+                response = make_response(request, 200, request.get('data'))
+                print(f'Request: {bytes_request.decode()}')
+            except Exception as err:
+                response = make_response(request, 500,'Internal server error')
+                print(err)
+        else:
+            response = make_response(request, 400, 'Request is not valid')
+            print(f'Wrong request: {request}')
+
+        string_response = json.dumps(response)
+        client.send(string_response.encode())
+        client.close()
