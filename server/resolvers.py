@@ -20,5 +20,5 @@ def find_server_action():
 
     return {item.get('action'): item.get('controller') for item in mapping if item}
 
-def resolve(action, routes):
-    return routes.get(action)
+if __name__ == '__main__':
+    print(find_server_action())
