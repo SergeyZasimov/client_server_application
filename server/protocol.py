@@ -6,7 +6,7 @@ def validate_request(request):
 def make_response(request, code, data=None, date=datetime.now()):
     return{
         'action':request.get('action'),
-        'time': date.timestamp(),
+        'time': date.timestamp() if isinstance(date, datetime) else date,
         'code': code,
         'data': data
     }

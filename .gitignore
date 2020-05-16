@@ -3,3 +3,5 @@ python_advanced/
 __pycache__
 *.pyc
 notebook/
+.vscode
+.coverage
