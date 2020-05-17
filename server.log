@@ -1,0 +1,20 @@
+2020-05-17 10:17:02,172 - INFO - Server started with localhost:8000
+2020-05-17 10:18:01,579 - INFO - Client 127.0.0.1:51023 was connected
+2020-05-17 10:18:14,004 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589699881.560372}
+2020-05-17 10:18:20,067 - INFO - Client 127.0.0.1:51027 was connected
+2020-05-17 10:18:23,428 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589699900.053101}
+2020-05-17 10:18:30,685 - INFO - Client 127.0.0.1:51031 was connected
+2020-05-17 10:18:36,834 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589699910.672522}
+2020-05-17 10:18:46,293 - INFO - Client 127.0.0.1:51034 was connected
+2020-05-17 10:18:48,565 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589699926.279889}
+2020-05-17 10:33:39,845 - INFO - Server started with localhost:8000
+2020-05-17 10:34:15,690 - INFO - Server shutdown
+2020-05-17 10:43:12,675 - INFO - Server started with localhost:8000
+2020-05-17 10:47:51,290 - INFO - Server started with localhost:8000
+2020-05-17 10:48:04,246 - INFO - Client 127.0.0.1:51477 was connected
+2020-05-17 10:48:13,569 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589701684.224333}
+2020-05-17 10:50:24,977 - INFO - Server shutdown
+2020-05-17 10:50:48,492 - INFO - Server started with localhost:8000
+2020-05-17 10:51:10,666 - INFO - Client 127.0.0.1:51513 was connected
+2020-05-17 10:51:27,034 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589701870.650177}
+2020-05-17 10:51:46,396 - INFO - Server shutdown
