@@ -23,3 +23,22 @@
 2020-05-17 12:27:38,387 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589707647.786601} - response: {'action': 'echo', 'time': 1589707642.670969, 'code': 200, 'data': 'test'}
 2020-05-17 12:27:38,388 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589707647.786601}
 2020-05-17 12:32:24,931 - INFO - Server shutdown
+2020-05-17 13:06:57,942 - INFO - Server started with localhost:8000
+2020-05-17 13:07:07,295 - INFO - Client 127.0.0.1:53423 was connected
+2020-05-17 13:07:14,065 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589710027.277325} - response: {'action': 'echo', 'time': 1589710017.908356, 'code': 200, 'data': 'test'}
+2020-05-17 13:07:14,067 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589710027.277325}
+2020-05-17 13:07:22,444 - INFO - Client 127.0.0.1:53427 was connected
+2020-05-17 13:07:23,663 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589710042.413764}
+2020-05-17 13:07:38,730 - INFO - Client 127.0.0.1:53429 was connected
+2020-05-17 13:07:44,591 - CRITICAL - Server error
+2020-05-17 13:08:43,865 - INFO - Server shutdown
+2020-05-17 13:59:48,763 - INFO - Server started with localhost:8000
+2020-05-17 13:59:56,932 - INFO - Client 127.0.0.1:53992 was connected
+2020-05-17 14:00:05,981 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589713196.919819} - response: {'action': 'echo', 'time': 1589713188.746477, 'code': 200, 'data': 'test'}
+2020-05-17 14:00:06,001 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589713196.919819}
+2020-05-17 14:02:17,557 - INFO - Client 127.0.0.1:54021 was connected
+2020-05-17 14:02:22,818 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589713337.516066} - response: {'action': 'echo', 'time': 1589713188.746477, 'code': 200, 'data': 'test'}
+2020-05-17 14:02:22,840 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589713337.516066}
+2020-05-17 14:03:49,953 - INFO - Client 127.0.0.1:54035 was connected
+2020-05-17 14:03:55,964 - CRITICAL - Server error
+2020-05-17 14:04:09,144 - INFO - Server shutdown

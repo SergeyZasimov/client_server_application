@@ -1,5 +1,6 @@
 import yaml
 import json
+import zlib
 import socket
 from datetime import datetime
 from argparse import ArgumentParser
@@ -42,12 +43,18 @@ if __name__ == '__main__':
 
     action = input('Enter action name: ')
     message = input('Enter your message: ')
+
     request = make_request(action, message)
     string_request = json.dumps(request)
-    sock.send(string_request.encode())
+    bytes_request = string_request.encode()
+    compressed_request = zlib.compress(bytes_request)
+    sock.send(compressed_request)
 
-    bytes_response = sock.recv(buffersize)
+    compressed_response = sock.recv(buffersize)
+    decompressed_response = zlib.decompress(compressed_response)
+    bytes_response = decompressed_response.decode()
     response = json.loads(bytes_response)
+
     print(response)
 
     sock.close()

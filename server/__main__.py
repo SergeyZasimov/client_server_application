@@ -57,8 +57,9 @@ try:
 
         bytes_request = client.recv(buffersize) # принять данные
         bytes_response = handle_tcp_request(bytes_request, action_mapping)
-        
+
         client.send(bytes_response)
         client.close()
+        
 except KeyboardInterrupt:
     logging.info("Server shutdown")

@@ -2,8 +2,9 @@ import json
 import logging
 
 from protocol import validate_request, make_500, make_400, make_404, make_200
+from middlewares import compression_middleware
 
-
+@compression_middleware
 def handle_tcp_request(bytes_request, action_mapping):
     request = json.loads(bytes_request)
     if validate_request(request):
