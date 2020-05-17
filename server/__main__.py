@@ -5,7 +5,7 @@ import logging
 from argparse import ArgumentParser
 
 from resolvers import find_server_action
-from protocol import validate_request, make_500, make_400, make_404, make_200
+from handlers import handle_tcp_request
 
 
 config = {
@@ -56,28 +56,9 @@ try:
         logging.info(f'Client {client_host}:{client_port} was connected')
 
         bytes_request = client.recv(buffersize) # принять данные
-
-        request = json.loads(bytes_request)
-
-        if validate_request(request):
-            action = request.get('action')
-            controller = action_mapping.get(action)
-            if controller:
-                try:
-                    response = controller(request)
-                    logging.debug(f'Request: {bytes_request.decode()}')
-                except Exception as err:
-                    response = make_500(request)
-                    logging.critical(err)
-            else:
-                response = make_404(request)
-                logging.error(f'Action with name {action} not found')
-        else:
-            response = make_404(request)
-            logging.error(f'Wrong request: {request}')
-
-        string_response = json.dumps(response)
-        client.send(string_response.encode())
+        bytes_response = handle_tcp_request(bytes_request, action_mapping)
+        
+        client.send(bytes_response)
         client.close()
 except KeyboardInterrupt:
     logging.info("Server shutdown")
