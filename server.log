@@ -18,3 +18,8 @@
 2020-05-17 10:51:10,666 - INFO - Client 127.0.0.1:51513 was connected
 2020-05-17 10:51:27,034 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589701870.650177}
 2020-05-17 10:51:46,396 - INFO - Server shutdown
+2020-05-17 12:27:22,693 - INFO - Server started with localhost:8000
+2020-05-17 12:27:27,804 - INFO - Client 127.0.0.1:52767 was connected
+2020-05-17 12:27:38,387 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589707647.786601} - response: {'action': 'echo', 'time': 1589707642.670969, 'code': 200, 'data': 'test'}
+2020-05-17 12:27:38,388 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589707647.786601}
+2020-05-17 12:32:24,931 - INFO - Server shutdown
