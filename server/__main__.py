@@ -1,6 +1,7 @@
 import json
 import yaml
 import socket
+import select
 import logging
 from argparse import ArgumentParser
 
@@ -42,9 +43,14 @@ logging.basicConfig(
     )
 )
 
+requests = []
+connections = []
+
 try:
     sock = socket.socket() # создать сокет
-    sock.bind((host, port)) # привязать сокет к IP-адресу и порту сервера 
+    sock.bind((host, port)) # привязать сокет к IP-адресу и порту сервера
+    sock.setblocking(0)
+    # sock.settimeout(1)
     sock.listen(5) # готовность принимать соединение
 
     logging.info(f'Server started with {host}:{port}')
@@ -52,14 +58,26 @@ try:
     action_mapping = find_server_action()
 
     while True:
-        client, (client_host, client_port) = sock.accept() # принять запрос на установку соединения
-        logging.info(f'Client {client_host}:{client_port} was connected')
+        try:
+            client, (client_host, client_port) = sock.accept() # принять запрос на установку соединения
+            logging.info(f'Client {client_host}:{client_port} was connected')
+            connections.append(client)
+        except: pass
 
-        bytes_request = client.recv(buffersize) # принять данные
-        bytes_response = handle_tcp_request(bytes_request, action_mapping)
+        rlist, wlist, xlist = select.select(
+            connections, connections, connections, 0
+        )
 
-        client.send(bytes_response)
-        client.close()
-        
+        for read_client in rlist:
+            bytes_request = client.recv(buffersize) # принять данные
+            requests.append(bytes_request)
+
+        if requests:
+            bytes_requests = requests.pop()
+            bytes_response = handle_tcp_request(bytes_request, action_mapping)
+
+            for write_client in wlist:
+                write_client.send(bytes_response)
+
 except KeyboardInterrupt:
     logging.info("Server shutdown")
