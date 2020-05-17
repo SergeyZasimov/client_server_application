@@ -5,3 +5,4 @@ __pycache__
 notebook/
 .vscode
 .coverage
+.pytest_cache

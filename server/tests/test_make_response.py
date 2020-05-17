@@ -35,4 +35,4 @@ def test_action_make_response():
 
 def test_invalid_make_response():
     with pytest.raises(AttributeError):
-        response = make_response(None, CODE)
+        make_response(None, CODE)
