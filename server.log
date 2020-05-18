@@ -85,3 +85,24 @@
 2020-05-17 17:48:30,599 - ERROR - Action with name echo test2 not found
 2020-05-17 17:48:42,649 - DEBUG - request: {'action': 'echo', 'data': 'test2', 'time': 1589726877.652445} - response: {'action': 'echo', 'time': 1589726834.418607, 'code': 200, 'data': 'test2'}
 2020-05-17 17:48:42,650 - DEBUG - Request: {"action": "echo", "data": "test2", "time": 1589726877.652445}
+2020-05-18 09:53:10,457 - INFO - Server started with localhost:8000
+2020-05-18 09:53:40,406 - INFO - Client 127.0.0.1:60172 was connected
+2020-05-18 09:55:13,670 - INFO - Client 127.0.0.1:60202 was connected
+2020-05-18 09:55:22,388 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589784913.661307} - response: {'action': 'echo', 'time': 1589784790.438069, 'code': 200, 'data': 'test'}
+2020-05-18 09:55:22,389 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589784913.661307}
+2020-05-18 09:55:41,291 - DEBUG - request: {'action': 'echo', 'data': 'привет', 'time': 1589784913.661307} - response: {'action': 'echo', 'time': 1589784790.438069, 'code': 200, 'data': 'привет'}
+2020-05-18 09:55:41,294 - DEBUG - Request: {"action": "echo", "data": "\u043f\u0440\u0438\u0432\u0435\u0442", "time": 1589784913.661307}
+2020-05-18 09:56:05,084 - INFO - Server shutdown
+2020-05-18 10:04:58,723 - INFO - Server started with localhost:8000
+2020-05-18 10:05:16,042 - INFO - Client 127.0.0.1:60468 was connected
+2020-05-18 10:05:26,310 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589785516.021237} - response: {'action': 'echo', 'time': 1589785498.698036, 'code': 200, 'data': 'test'}
+2020-05-18 10:05:26,310 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589785516.021237}
+2020-05-18 10:05:48,406 - ERROR - Wrong request: {'action': '', 'data': 'error', 'time': 1589785516.021237}
+2020-05-18 10:06:26,241 - INFO - Client 127.0.0.1:60486 was connected
+2020-05-18 10:06:33,212 - DEBUG - request: {'action': 'echo', 'data': 'test', 'time': 1589785586.217209} - response: {'action': 'echo', 'time': 1589785498.698036, 'code': 200, 'data': 'test'}
+2020-05-18 10:06:33,221 - DEBUG - Request: {"action": "echo", "data": "test", "time": 1589785586.217209}
+2020-05-18 10:06:42,141 - ERROR - Wrong request: {'action': '', 'data': 'echo', 'time': 1589785586.217209}
+2020-05-18 10:06:51,736 - ERROR - Action with name test2 not found
+2020-05-18 10:06:58,994 - DEBUG - request: {'action': 'echo', 'data': '', 'time': 1589785586.217209} - response: {'action': 'echo', 'time': 1589785498.698036, 'code': 200, 'data': ''}
+2020-05-18 10:06:58,997 - DEBUG - Request: {"action": "echo", "data": "", "time": 1589785586.217209}
+2020-05-18 10:07:05,052 - ERROR - Wrong request: {'action': '', 'data': '', 'time': 1589785586.217209}
